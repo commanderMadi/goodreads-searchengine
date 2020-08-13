@@ -3,6 +3,7 @@ const searchFormInput = document.getElementById('search_book');
 const searchResultsContainer = document.getElementById(
     'search_results_container'
 );
+const totalFoundElement = document.getElementById('totalfound');
 
 const getBook = async (url) => {
     const data = await fetch(url);
@@ -11,6 +12,7 @@ const getBook = async (url) => {
         const books = await data.json();
         if (books.length) {
             searchResultsContainer.innerHTML = '';
+            totalFoundElement.textContent = `Total queries found: ${books.length}`;
             for (let book of books) {
                 const bookDetailsEl = document.createElement('div');
                 bookDetailsEl.classList.add('book_details_container');
@@ -26,8 +28,10 @@ const getBook = async (url) => {
                 searchResultsContainer.appendChild(bookDetailsEl);
             }
         } else {
-            searchResultsContainer.textContent =
-                'No data found matching the search criteria.';
+            totalFoundElement.textContent = `Total queries found: 0`;
+
+            searchResultsContainer.innerHTML =
+                '<p class="errmsg">No data found matching the search criteria.</p>';
         }
     } catch (err) {
         console.log(err);
@@ -36,5 +40,10 @@ const getBook = async (url) => {
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    getBook(`/books/${search_book.value}`);
+    if (!searchFormInput.value) {
+        searchResultsContainer.innerHTML =
+            '<p class="errmsg">The search bar is empty. Enter some characters to proceed.</p>';
+    } else {
+        getBook(`/books/${search_book.value}`);
+    }
 });

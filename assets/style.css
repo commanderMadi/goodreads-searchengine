@@ -4,8 +4,6 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 #search {
@@ -49,6 +47,15 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+}
+
+#totalfound {
+    text-align: left;
+    margin-left: 3rem;
+}
+
+.errmsg {
+    margin-left: 3rem;
 }
 
 .book_details_container {
