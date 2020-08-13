@@ -34,7 +34,7 @@ afterAll(async () => {
 describe('get the book ', () => {
     it('should retrieve correct book if the title matches or the id matches', async () => {
         const foundBook = await bookModel.findById(bookId);
-        expect(foundBook.id).toBe(bookId);
+        expect(foundBook.id).toBe('1234');
         expect(foundBook.title).toBe(testBook.title);
     });
 });
