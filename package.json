@@ -1,0 +1,24 @@
+{
+    "name": "goodreads",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "jest --runInBand ./test"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.28",
+        "nodemon": "^2.0.4"
+    },
+    "devDependencies": {
+        "jest": "^26.4.0",
+        "mongodb-memory-server": "^6.6.3"
+    }
+}

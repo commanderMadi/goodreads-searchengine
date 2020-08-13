@@ -1,0 +1,68 @@
+#container {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#search {
+    width: 100%;
+    text-align: center;
+}
+
+#search_label {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#search_book {
+    display: block;
+    width: 75%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin: 1rem auto;
+    border: 0.125rem solid #ccc;
+}
+
+#submit_btn {
+    background: #2f2f2f;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    outline: none;
+}
+
+#submit_btn:hover {
+    background: orangered;
+}
+
+#search_results_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book_details_container {
+    width: 40%;
+    background: rgba(250, 250, 255, 0.7);
+    padding: 2rem;
+    margin: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.book_details_container div {
+    margin: 1rem;
+}
+
+.label {
+    font-weight: 700;
+}
