@@ -9,20 +9,25 @@ const getBook = async (url) => {
 
     try {
         const books = await data.json();
-        searchResultsContainer.innerHTML = '';
-        for (let book of books) {
-            const bookDetailsEl = document.createElement('div');
-            bookDetailsEl.classList.add('book_details_container');
-            const titleEl = document.createElement('div');
-            titleEl.innerHTML = `<span class="label book_title">Title: </span>${book.title}`;
-            const authorsEl = document.createElement('div');
-            authorsEl.innerHTML = `<span class="label authors">Authors: </span>${book.authors}`;
-            const averageRatingEl = document.createElement('div');
-            averageRatingEl.innerHTML = `<span class="label rating">Average Rating: </span>${book.average_rating}`;
-            bookDetailsEl.appendChild(titleEl);
-            bookDetailsEl.appendChild(authorsEl);
-            bookDetailsEl.appendChild(averageRatingEl);
-            searchResultsContainer.appendChild(bookDetailsEl);
+        if (books.length) {
+            searchResultsContainer.innerHTML = '';
+            for (let book of books) {
+                const bookDetailsEl = document.createElement('div');
+                bookDetailsEl.classList.add('book_details_container');
+                const titleEl = document.createElement('div');
+                titleEl.innerHTML = `<span class="label book_title">Title: </span>${book.title}`;
+                const authorsEl = document.createElement('div');
+                authorsEl.innerHTML = `<span class="label authors">Authors: </span>${book.authors}`;
+                const averageRatingEl = document.createElement('div');
+                averageRatingEl.innerHTML = `<span class="label rating">Average Rating: </span>${book.average_rating}`;
+                bookDetailsEl.appendChild(titleEl);
+                bookDetailsEl.appendChild(authorsEl);
+                bookDetailsEl.appendChild(averageRatingEl);
+                searchResultsContainer.appendChild(bookDetailsEl);
+            }
+        } else {
+            searchResultsContainer.textContent =
+                'No data found matching the search criteria.';
         }
     } catch (err) {
         console.log(err);
